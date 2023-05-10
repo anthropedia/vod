@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@polight/lego": "^2.0.0-beta.3",
+    "concurrently": "^8.0.1",
+    "http-server": "^14.1.1"
+  },
+  "name": "tci-vod",
+  "version": "1.0.0",
+  "description": "TCI Video On Demand - Know Yourself DVD series",
+  "main": "index.html",
+  "repository": "https://github.com/anthropedia/vod",
+  "author": "Vincent Agnano",
+  "license": "GPL v3",
+  "scripts": {
+    "start": "concurrently 'npm run watch' 'http-server --port 8081'",
+    "watch": "npm run build -- -w",
+    "build": "lego bricks dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

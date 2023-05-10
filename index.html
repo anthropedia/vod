@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf8>
+<title>TCI VOD — Know Yourself</title>
+
+<script src=https://cdn.jsdelivr.net/gh/polight/browser-compatibility@master/check.js> </script>
+
+<link rel=stylesheet href=/assets/css/main.css>
+
+<body>
+  <x-app></x-app>
+</body>
+
+<script src=/assets/vendors/page.min.js></script>
+<script src="/assets/js/utils.js"></script>
+<script src="/config.js"></script>
+
+<script>
+  function api(uri, options = {}) {
+    return request(`${config.apiUrl}${uri}`, options)
+  }
+
+  function _(text) {
+    if (window.trans && window.trans[text]) return window.trans[text]
+    return text
+  }
+
+  const script = document.createElement('script')
+  script.src = `dist/index.js?${Math.random()}`
+  script.type = 'module'
+  document.head.append(script)
+</script>

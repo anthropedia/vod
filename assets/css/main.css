@@ -1,0 +1,76 @@
+@import url('https://cdn.jsdelivr.net/gh/polight/decor@master/decor.css');
+/* @import url('/assets/vendors/decor/decor.css'); */
+@import url('https://use.fontawesome.com/releases/v5.6.1/css/all.css');
+
+:root {
+  --primary-color: #1e88e5;
+  --light-color: #42a5f5;
+  --white-background: #fcfcfc;
+  --background-color: #004683;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+}
+
+button,
+.button,
+[type=submit] {
+  transition: all .3s;
+}
+
+button:not(.primary),
+.button:not(.primary),
+[type=input]:not(.primary) {
+  color: var(--light-color);
+}
+
+button:hover,
+.button:hover,
+[type=submit]:hover {
+  color: var(--primary-color);
+  background-color: #fcfcfc;
+}
+
+button.primary:hover,
+.button.primary:hover,
+[type=input].primary:hover {
+  color: #fff;
+  background-color: var(--light-color);
+}
+
+.two-columns {
+  display: grid;
+  grid-template:
+    'main aside' / 2fr 1fr;
+}
+
+.two-columns main {
+  grid-area: main;
+}
+.two-columns aside {
+  grid-area: aside;
+}
+
+.block {
+  background: var(--white-background);
+  padding: 1rem;
+  margin: 1rem 1rem;
+  border-radius: .2rem;
+  box-shadow: 0 0 .3rem rgba(88, 88, 88, .8);
+}
+.block h1:first-child {
+  font-size: 1rem;
+  color: #555;
+}
+.block h1:first-child::after {
+  display: block;
+  content: " ";
+  border-bottom: 1px solid #999;
+  margin: .5rem -1rem 0 -1rem;
+}
+
+.toolbar {
+  background-color: var(--white-background);
+}
