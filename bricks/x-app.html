@@ -1,3 +1,92 @@
-<template>
-  Know Yourself
+<script>
+  import page from "/assets/vendors/page.js"
+
+  const state = {
+    currentPage: '',
+    videoId: '',
+  }
+  
+  function constructed(brick) {
+    page('/', () => { brick.render({ currentPage: 'home' }) })
+    page('/video/:id', (ctx) => {
+      brick.render({
+        videoid: ctx.params.id,
+        currentPage: 'video'
+      })
+    })
+  
+    page.start({ hashbang: true })
+  }
+</script>
+
+<template page>
+  <header>
+    <h1 id=logo>
+    <a href="/">
+      <img src=https://assets.tci.anthropedia.org/images/anthropedia.svg alt="Anthropedia Foundation"></a>
+    </h1>
+    <section id=language :if="state.page === 'introduction'">
+      <button value=en @click="switchLanguage"><img alt=English title=English
+          src=https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg></button>
+      <button value=fr @click="switchLanguage"><img alt=Français title=Français
+          src=https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_France_%281790%E2%80%931794%29.svg></button>
+      <button value=se @click="switchLanguage"><img alt=Swedish title=Swedish
+          src=https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Sweden.svg></button>
+    </section>
+  </header>
+
+  <main>
+    <x-list :if="state.currentPage == 'home'"></x-list>
+    <x-video :if="state.currentPage == 'video'" :videoid="state.videoid"></x-video>
+  </main>
 </template>
+
+<style>
+  header {
+    padding: .1rem 1rem;
+    background-color: var(--white-background);
+    box-shadow: .3rem 0 .5rem rgba(0, 0, 0, .4);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+
+  #logo {
+    width: 5rem;
+  }
+
+  #logo a,
+  #logo img {
+    display: inline-block;
+    width: 100%;
+  }
+
+  footer {
+    color: white;
+    padding: 1rem;
+    font-size: .6rem;
+  }
+
+  header {
+    display: flex;
+  }
+
+  #language {
+    flex: 1;
+    align-self: center;
+    text-align: right;
+  }
+
+  #language button {
+    max-width: 2rem;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  #language img {
+    width: 26px;
+    height: 18px;
+  }
+
+</style>

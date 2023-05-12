@@ -1,0 +1,19 @@
+<script>
+  const state = { videoid: 'rr' }
+
+  function constructed() {
+    debugger
+  }
+</script>
+
+<template>
+  <article class="block">
+    <h1>Playing video <span :videoid="state.videoid"></span>${ state.videoid }</h1>
+    <raw-html>${ _('clients.introduction') }</raw-html>
+    <a class=button href="/${state.token}/test">${ _('I agree; start the test') }</a>
+  </article>
+</template>
+
+<style>
+  @import url('/assets/css/main.css');
+</style>
