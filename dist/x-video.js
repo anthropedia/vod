@@ -1,12 +1,12 @@
-// Lego version 2.0.0-beta.3
+// Lego version 2.0.0-beta.4
 import { h, Component } from './lego.min.js'
 
 
 
-  const state = { videoid: 'rr' }
+  const state = { videoid: 0 }
 
-  function constructed() {
-    debugger
+  function connected() {
+    
   }
 
 
@@ -17,35 +17,27 @@ const __template = function({ state }) {
 `Playing video `,
         h("span", {"videoid": state.videoid}, ""),
 `${ state.videoid }`
-      ]),
-      h("raw-html", {}, `${ _('clients.introduction') }`),
-      h("a", {"class": `button`, "href": `/${state.token}/test`}, `${ _('I agree; start the test') }`)
+      ])
     ])
   ]
 }
 
 const __style = function({ state }) {
   return h('style', {}, `
-    
-    
-      @import url('/assets/css/main.css');
+    @import url('/assets/css/main.css');
     
   `)
 }
 
 // -- Lego Core
-let render = async function (state) {}
-
 export default class Lego extends Component {
-  constructor() {
-    super()
-    try {
-      this.__state = state
-    } catch {}
-    render = this.render.bind(this)
-    try {
-      constructed(this)
-    } catch {}
+  init() {
+    if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
+    if(typeof setup === 'function') setup.bind(this)()
+  }
+  connectedCallback() {
+    if(typeof connected === 'function') connected.bind(this)()
+    super.connectedCallback()
   }
   get vdom() { return __template }
   get vstyle() { return __style }

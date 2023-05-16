@@ -1,4 +1,4 @@
-// Lego version 2.0.0-beta.3
+// Lego version 2.0.0-beta.4
 import { h, Component } from './lego.min.js'
 
 
@@ -10,16 +10,16 @@ import { h, Component } from './lego.min.js'
     videoId: '',
   }
   
-  function constructed(brick) {
-    page('/', () => { brick.render({ currentPage: 'home' }) })
+  function connected() {
+    page('/', () => { this.render({ currentPage: 'home' }) })
     page('/video/:id', (ctx) => {
-      brick.render({
+      this.render({
         videoid: ctx.params.id,
         currentPage: 'video'
       })
     })
   
-    page.start({ hashbang: true })
+    page({ hashbang: true })
   }
 
 
@@ -32,9 +32,9 @@ const __template = function({ state }) {
         ])
       ]),
       ((state.page === 'introduction') ? h("section", {"id": `language`}, [
-        h("button", {"value": `en`, "onclick": (typeof switchLanguage !== 'undefined' ? switchLanguage : this.switchLanguage).bind(this)},           h("img", {"alt": `English`, "title": `English`, "src": `https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg`}, "")),
-        h("button", {"value": `fr`, "onclick": (typeof switchLanguage !== 'undefined' ? switchLanguage : this.switchLanguage).bind(this)},           h("img", {"alt": `Français`, "title": `Français`, "src": `https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_France_%281790%E2%80%931794%29.svg`}, "")),
-        h("button", {"value": `se`, "onclick": (typeof switchLanguage !== 'undefined' ? switchLanguage : this.switchLanguage).bind(this)},           h("img", {"alt": `Swedish`, "title": `Swedish`, "src": `https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Sweden.svg`}, ""))
+        h("button", {"value": `en`, "onclick": (typeof switchLanguage === 'function' ? switchLanguage.bind(this) : this.switchLanguage).bind(this)},           h("img", {"alt": `English`, "title": `English`, "src": `https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg`}, "")),
+        h("button", {"value": `fr`, "onclick": (typeof switchLanguage === 'function' ? switchLanguage.bind(this) : this.switchLanguage).bind(this)},           h("img", {"alt": `Français`, "title": `Français`, "src": `https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_France_%281790%E2%80%931794%29.svg`}, "")),
+        h("button", {"value": `se`, "onclick": (typeof switchLanguage === 'function' ? switchLanguage.bind(this) : this.switchLanguage).bind(this)},           h("img", {"alt": `Swedish`, "title": `Swedish`, "src": `https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Sweden.svg`}, ""))
       ]) : '')
     ]),
     h("main", {}, [
@@ -46,7 +46,7 @@ const __template = function({ state }) {
 
 const __style = function({ state }) {
   return h('style', {}, `
-    
+    @import url('/assets/css/main.css');
     
       header {
         padding: .1rem 1rem;
@@ -100,18 +100,14 @@ const __style = function({ state }) {
 }
 
 // -- Lego Core
-let render = async function (state) {}
-
 export default class Lego extends Component {
-  constructor() {
-    super()
-    try {
-      this.__state = state
-    } catch {}
-    render = this.render.bind(this)
-    try {
-      constructed(this)
-    } catch {}
+  init() {
+    if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
+    if(typeof setup === 'function') setup.bind(this)()
+  }
+  connectedCallback() {
+    if(typeof connected === 'function') connected.bind(this)()
+    super.connectedCallback()
   }
   get vdom() { return __template }
   get vstyle() { return __style }

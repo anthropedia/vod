@@ -6,16 +6,16 @@
     videoId: '',
   }
   
-  function constructed(brick) {
-    page('/', () => { brick.render({ currentPage: 'home' }) })
+  function connected() {
+    page('/', () => { this.render({ currentPage: 'home' }) })
     page('/video/:id', (ctx) => {
-      brick.render({
+      this.render({
         videoid: ctx.params.id,
         currentPage: 'video'
       })
     })
   
-    page.start({ hashbang: true })
+    page({ hashbang: true })
   }
 </script>
 

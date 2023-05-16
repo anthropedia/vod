@@ -9,28 +9,12 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@polight/lego@^2.0.0-beta.3":
-  version "2.0.0-beta.3"
-  resolved "https://registry.npmjs.org/@polight/lego/-/lego-2.0.0-beta.3.tgz"
-  integrity sha512-/QwRB8e6wfyDi7l4WaORxR6V40hlJsTLwRL/jMLaqWBTUBUWAfmkMebXVvE08jk4csM+lPu0S1zcEhZ8TUTZSw==
+"@polight/lego@^2.0.0-beta.4":
+  version "2.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@polight/lego/-/lego-2.0.0-beta.4.tgz#6ee9ffd9f1042e1526335e47700c96738d33a74b"
+  integrity sha512-QXrWGOj8Sq/KLxlKYyOE36ax/TIh4+6abB3DklK9pjFL5WkuB0uRnGtBiFZt/NYuuN0+6I1637ksRlrkGZi5Jg==
   dependencies:
     parse5 "^7.1.2"
-
-"@riotjs/route@^8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@riotjs/route/-/route-8.0.2.tgz#7c625345e2530a4c60b4835b2e143f5c916819eb"
-  integrity sha512-zTLKhoJkpQa7lKOxEYLnSB8wVo9IQMcpZ3ysTgK9Av8yl9FVbO55tiwnShiLair+jOjuBAXvdTqTHBxZDBqrbw==
-  dependencies:
-    "@riotjs/util" "^2.1.1"
-    bianco.attr "^1.1.1"
-    bianco.events "^1.1.1"
-    cumpa "^1.0.1"
-    rawth "^2.1.2"
-
-"@riotjs/util@^2.1.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@riotjs/util/-/util-2.2.1.tgz#bade985d1507a8d9400ecb3ea8c671e41950854c"
-  integrity sha512-qoL8REqNPFSGcCaBuzmqKICmVjSimQ3gD7EHrgBqSLgO/7Z83nRtCPcARWwjGHYm8TtDBSFZeton34Qi01XXOg==
 
 ansi-regex@^5.0.1:
   version "5.0.1"
@@ -57,25 +41,6 @@ basic-auth@^2.0.1:
   integrity sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==
   dependencies:
     safe-buffer "5.1.2"
-
-bianco.attr@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/bianco.attr/-/bianco.attr-1.1.1.tgz#d69b22f9165a537159bc45ae60414b0419e6a1d1"
-  integrity sha512-fTjfPnnGYiCVbe5UltC/LsDRtJE+MjmadtL749CMIfCwjl18sdbCkaQ7cgtSao6iC9ZJC8Pzw0rjMdIuA6mK1g==
-  dependencies:
-    bianco.dom-to-array "^1.1.0"
-
-bianco.dom-to-array@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/bianco.dom-to-array/-/bianco.dom-to-array-1.1.0.tgz#f8ebec7f8ffb26f7a2d0d0ce90551ebcb16f972d"
-  integrity sha512-IWUgplQRhJSZh+7PgD/my5+X27PXNUFdcHPosOYz39a/iFF8Wl9d0N/mOArdR7Zgr3J0Q9pKVk7nO6W+7XZwBg==
-
-bianco.events@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/bianco.events/-/bianco.events-1.1.1.tgz#4144cbe4875551121ba22eadb53a9f0f4a686bf0"
-  integrity sha512-Ja7oY4xThYgsmfS+JltOnzdAvqP90DVXjbXab0lwrygJdCVRoL0Q4SkEKVMnN1VqNfDtxIUKNlubEUVNp00H7A==
-  dependencies:
-    bianco.dom-to-array "^1.1.0"
 
 call-bind@^1.0.0:
   version "1.0.2"
@@ -134,11 +99,6 @@ corser@^2.0.1:
   resolved "https://registry.npmjs.org/corser/-/corser-2.0.1.tgz"
   integrity sha512-utCYNzRSQIZNPIcGZdQc92UVJYAhtGAteCFg0yRaFm8f0P+CPtyGyHXJcGXnffjCybUCEx3FQ2G7U3/o9eIkVQ==
 
-cumpa@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/cumpa/-/cumpa-1.0.1.tgz#beff3180ab36e850a157a779d0cf4d997d2c7980"
-  integrity sha512-Ew3sfG4cqvDFINS1VgdvLX1FIruhySlnP6DRLhB+1EjewiOzhJzKRKPEp/TCuo0RDisSFeuaDrk0S4Q8grF9CA==
-
 date-fns@^2.29.3:
   version "2.30.0"
   resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.30.0.tgz"
@@ -162,13 +122,6 @@ entities@^4.4.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
-
-erre@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/erre/-/erre-2.2.0.tgz#eb2fe100dc9f937f7bc5ed8b0df550058abe2973"
-  integrity sha512-rM+EfZdJCC17CSBGyULHRHfHiUpElGLfAv0g2Eu+xQZOMPAaCZon0odOXKa3EsrCeO4VFKMpXNAGziUzIY0PEA==
-  dependencies:
-    ruit "^1.0.4"
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -329,11 +282,6 @@ parse5@^7.1.2:
   dependencies:
     entities "^4.4.0"
 
-path-to-regexp@^6.2.0:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.1.tgz#d54934d6798eb9e5ef14e7af7962c945906918e5"
-  integrity sha512-JLyh7xT1kizaEvcaXOQwOc2/Yhw6KZOvPf1S8401UyLk86CU79LN3vl7ztXGm/pZ+YjoyAJ4rxmHwbkBXJX+yw==
-
 path-to-regexp@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-1.2.1.tgz#b33705c140234d873c8721c7b9fd8b541ed3aff9"
@@ -357,14 +305,6 @@ qs@^6.4.0:
   dependencies:
     side-channel "^1.0.4"
 
-rawth@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/rawth/-/rawth-2.1.2.tgz#d3b146d60efc2f59bccaf43f70f43510993f11b6"
-  integrity sha512-RMbHiR+LAuZ2wg0qHR0ADENFTvBfNqtF5QJK/rz1JhJ3CgmGx+WO7aT2wcCLxvtfBvfstrnKj3fdEIWvYB0B9A==
-  dependencies:
-    erre "^2.2.0"
-    path-to-regexp "^6.2.0"
-
 regenerator-runtime@^0.13.11:
   version "0.13.11"
   resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz"
@@ -379,11 +319,6 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz"
   integrity sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==
-
-ruit@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/ruit/-/ruit-1.0.4.tgz#4cb4bae698e611003fa7726a6ab098f19964cf97"
-  integrity sha512-eiHVb18DQ24Of/fdJmZCysw6X21IIyed5c87eAW95KQY5TvTfh6SR9pCkAowciyvhW1Bhm3RXuRX6eILKl+49w==
 
 rxjs@^7.8.0:
   version "7.8.1"
