@@ -85,7 +85,11 @@ const __style = function({ state }) {
         max-width: 288px;
         margin-right: .88rem;
         padding: .88rem;
-        box-shadow: 1px 1px 3px rgba(8, 8, 8, 0.33);
+        box-shadow: 1px 1px 8px rgba(8, 8, 8, 0.33);
+        transition: box-shadow .3s;
+      }
+      .item:hover {
+        box-shadow: 1px 1px 3px rgba(8, 8, 8, 0.55);
       }
       .item h3 {
         padding: 0;
