@@ -9,12 +9,17 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@polight/lego@^2.0.0-beta.4":
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@polight/lego/-/lego-2.0.0-beta.4.tgz#6ee9ffd9f1042e1526335e47700c96738d33a74b"
-  integrity sha512-QXrWGOj8Sq/KLxlKYyOE36ax/TIh4+6abB3DklK9pjFL5WkuB0uRnGtBiFZt/NYuuN0+6I1637ksRlrkGZi5Jg==
+"@polight/lego@^2.0.0-beta.5":
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@polight/lego/-/lego-2.0.0-beta.5.tgz#5deda88be30298fa395dec5c3b746ee2c718d54e"
+  integrity sha512-VidlqM31a74F9pZ9O6G+4vYX9p/RUoHYBCZU0t8xolCRWibKOqMdpCYDalhKdrzX++nDG+R6xI7OPpanPG5JDQ==
   dependencies:
     parse5 "^7.1.2"
+
+"@polight/store@*":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@polight/store/-/store-0.0.1.tgz#9e4ec6443ca22abaaf4874a6f2f15a8984258e2e"
+  integrity sha512-pJa6QXH+yWXL48RvEWkgNnjpoYmIfpRyIUOFrubY5RLyp/YbJELx7tSwyh+ACHi16EA9QjVS8sgjyeBAMkGZfQ==
 
 ansi-regex@^5.0.1:
   version "5.0.1"

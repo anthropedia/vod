@@ -1,7 +1,8 @@
 {
   "type": "module",
   "dependencies": {
-    "@polight/lego": "^2.0.0-beta.4",
+    "@polight/lego": "^2.0.0-beta.5",
+    "@polight/store": "*",
     "page": "^1.11.6"
   },
   "devDependencies": {
@@ -16,7 +17,7 @@
   "author": "Vincent Agnano",
   "license": "GPL v3",
   "scripts": {
-    "start": "concurrently 'npm run watch' 'http-server --port 8081'",
+    "dev": "concurrently 'npm run watch' 'http-server --port 8081'",
     "watch": "npm run build -- -w",
     "build": "lego bricks dist",
     "test": "echo \"Error: no test specified\" && exit 1"

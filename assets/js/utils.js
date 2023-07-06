@@ -30,3 +30,5 @@ function request (url, options = {}) {
     })
     .catch(console.error.bind(console))
 }
+
+export default { request }

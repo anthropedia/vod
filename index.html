@@ -10,19 +10,7 @@
   <x-app></x-app>
 </body>
 
-<script src="/assets/js/utils.js"></script>
-<script src="/config.js"></script>
-
 <script>
-  function api(uri, options = {}) {
-    return request(`${config.apiUrl}${uri}`, options)
-  }
-
-  function _(text) {
-    if (window.trans && window.trans[text]) return window.trans[text]
-    return text
-  }
-
   const script = document.createElement('script')
   script.src = `dist/index.js?${Math.random()}`
   script.type = 'module'

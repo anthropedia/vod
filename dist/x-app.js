@@ -1,8 +1,8 @@
-// Lego version 2.0.0-beta.4
-import { h, Component } from './lego.min.js'
+ // Lego version 2.0.0-beta.5
+  import { h, Component } from './lego.min.js'
+  
 
-
-
+  
   import page from "/assets/vendors/page.js"
 
   const state = {
@@ -23,8 +23,8 @@ import { h, Component } from './lego.min.js'
   }
 
 
-const __template = function({ state }) {
-  return [  
+  const __template = function({ state }) {
+    return [  
     h("header", {}, [
       h("h1", {"id": `logo`}, [
         h("a", {"href": `/`}, [
@@ -42,12 +42,12 @@ const __template = function({ state }) {
       ((state.currentPage == 'video') ? h("x-video", {"videoid": state.videoid}, "") : '')
     ])
   ]
-}
+  }
 
-const __style = function({ state }) {
-  return h('style', {}, `
-    @import url('/assets/css/main.css');
-    
+  const __style = function({ state }) {
+    return h('style', {}, `
+      @import url('/assets/css/main.css');
+      
       header {
         padding: .1rem 1rem;
         background-color: var(--white-background);
@@ -96,22 +96,20 @@ const __style = function({ state }) {
       }
     
     
-  `)
-}
-
-// -- Lego Core
-export default class Lego extends Component {
-  init() {
-    if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
-    if(typeof setup === 'function') setup.bind(this)()
+    `)
   }
-  connectedCallback() {
-    if(typeof connected === 'function') connected.bind(this)()
-    super.connectedCallback()
+
+  // -- Lego Core
+  export default class Lego extends Component {
+    init() {
+      this.useShadowDOM = true
+      if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
+      if(typeof connected === 'function') this.connected = connected
+      if(typeof setup === 'function') setup.bind(this)()
+    }
+    get vdom() { return __template }
+    get vstyle() { return __style }
   }
-  get vdom() { return __template }
-  get vstyle() { return __style }
-}
-// -- End Lego Core
+  // -- End Lego Core
 
-
+  
