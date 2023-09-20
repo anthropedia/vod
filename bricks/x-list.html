@@ -11,8 +11,9 @@
     <h1>Available Audios And Videos</h1>
 
     <section>
-      <h2>Listen To The Know Yourself Audio Series</h2>
-      <a class="item" :for="item in state.media.audios" href="/video/${item.id}">
+      <h2>Watch The Know Yourself Videos Series</h2>
+      
+      <a class="item" :for="item in state.media.videos" href="/video/${item.id}">
         <h3>${ item.title }</h3>
         <img :src="item.image" :alt="item.title">
         <p>${ item.description }</p>
@@ -20,9 +21,8 @@
     </section>
 
     <section>
-      <h2>Watch The Know Yourself Videos Series</h2>
-      
-      <a class="item" :for="item in state.media.videos" href="/video/${item.id}">
+      <h2>Listen To The Know Yourself Audio Series</h2>
+      <a class="item" :for="item in state.media.audios" href="/audio/${item.id}">
         <h3>${ item.title }</h3>
         <img :src="item.image" :alt="item.title">
         <p>${ item.description }</p>
