@@ -1,0 +1,19 @@
+<script>
+  const methods = {
+    submit(event) {
+      event.preventDefault()
+      const email = event.target.email.value
+      const response = api('/video/auth', { data: { email } })
+    }
+  }
+</script>
+
+<template>
+  <form @submit="submit">
+    <label for="email">
+      Email Address:
+      <input type="email" name="email" id="email" inputmode="email">
+    </label>
+    <button type="submit">Login</button>
+  </form>
+</template>
