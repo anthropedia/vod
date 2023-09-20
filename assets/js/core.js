@@ -1,9 +1,9 @@
-import { request } from './utils.js'
-import config from '../config.js'
+import utils from './utils.js'
+import config from '../../config.js'
 
 
 function api(uri, options = {}) {
-  return request(`${config.apiUrl}${uri}`, options)
+  return utils.request(`${config.apiUrl}${uri}`, options)
 }
 
 function _(text) {
@@ -11,4 +11,4 @@ function _(text) {
   return text
 }
 
-export default { api, _ }
+export { api, _ }
