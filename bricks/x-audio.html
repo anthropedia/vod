@@ -1,12 +1,12 @@
 <script>
-  const state = { audio: {} }
+  const state = { media: {} }
 </script>
 
 <template>
   <article class="block">
-    <h1>${ state.audio.title }</h1>
-    <img :src="state.audio.image" width="300">
-    <p>${ state.audio.description }</p>
-    <audio controls :src="state.audio.url" type="audio/wav"></audio>
+    <h1>${ state.media.title }</h1>
+    <img :src="state.media.image" width="300">
+    <p>${ state.media.description }</p>
+    <audio controls :src="state.media.url" type="audio/wav"></audio>
   </article>
 </template>

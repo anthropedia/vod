@@ -5,7 +5,7 @@
   const state = {
     currentPage: '',
     video: {},
-    audio: {},
+    media: {},
   }
   
   function connected() {
@@ -19,7 +19,7 @@
     })
     page('/audio/:id', (ctx) => {
       this.render({
-        audio: store.state.media.audios.find(m => m.id == Number(ctx.params.id)),
+        media: store.state.media.audios.find(m => m.id == Number(ctx.params.id)),
         currentPage: 'audio'
       })
     })
@@ -48,7 +48,7 @@
     <x-login :if="state.currentPage == 'login'"></x-login>
     <x-list :if="state.currentPage == 'home'"></x-list>
     <x-video :if="state.currentPage == 'video'" :video="state.video"></x-video>
-    <x-audio :if="state.currentPage == 'audio'" :audio="state.audio"></x-audio>
+    <x-audio :if="state.currentPage == 'audio'" :media="state.media"></x-audio>
   </main>
 </template>
 
