@@ -1,17 +1,26 @@
 <script>
   import page from "/assets/vendors/page.js"
+  import store from "/assets/js/store.js"
 
   const state = {
     currentPage: '',
-    videoId: '',
+    video: {},
+    audio: {},
   }
   
   function connected() {
     page('/', () => { this.render({ currentPage: 'home' }) })
+    page('/login', () => { this.render({ currentPage: 'login' }) })
     page('/video/:id', (ctx) => {
       this.render({
-        videoid: ctx.params.id,
+        video: store.state.media.videos.find(m => m.id == Number(ctx.params.id)),
         currentPage: 'video'
+      })
+    })
+    page('/audio/:id', (ctx) => {
+      this.render({
+        audio: store.state.media.audios.find(m => m.id == Number(ctx.params.id)),
+        currentPage: 'audio'
       })
     })
   
@@ -36,8 +45,10 @@
   </header>
 
   <main>
+    <x-login :if="state.currentPage == 'login'"></x-login>
     <x-list :if="state.currentPage == 'home'"></x-list>
-    <x-video :if="state.currentPage == 'video'" :videoid="state.videoid"></x-video>
+    <x-video :if="state.currentPage == 'video'" :video="state.video"></x-video>
+    <x-audio :if="state.currentPage == 'audio'" :audio="state.audio"></x-audio>
   </main>
 </template>
 
@@ -88,5 +99,4 @@
     width: 26px;
     height: 18px;
   }
-
 </style>
