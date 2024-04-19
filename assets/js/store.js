@@ -1,5 +1,7 @@
 import { LegoStore } from '../vendors/store.js'
 import { api } from '../js/core.js'
+import page from "/assets/vendors/page.js"
+
 
 const state = {
   user: {},
@@ -30,6 +32,7 @@ const state = {
 const actions = {
   async login(email) {
     const response = await api('/video/auth', { data: { email } })
+    if(!response.ok) return console.error(response.data)
     const user = response.data
     localStorage.setItem('user', JSON.stringify(user))
     this.setState({ user })
@@ -39,17 +42,18 @@ const actions = {
 
   async autoLogin() {
     try {
-      const email = JSON.parse(localStorage.getItem('user')).email
+      const email = JSON.parse(localStorage.getItem("user")).email
       const user = await this.actions.login(email)
-      return user
+      if(!user) this.actions.redirect("login")
     } catch(e) {
       console.error(e)
+      this.actions.redirect("login")
       return null
     }
   },
 
   redirect(url) {
-    window.location.hash = url
+     page.redirect(url.startsWith('/') ? url : `/${url}`)
   }
 }
 

@@ -3,8 +3,7 @@
     async submit(event) {
       event.preventDefault()
       const email = event.target.email.value
-      const response = await api('/video/auth', { data: { email } })
-      store.actions.login(response.data)
+      store.actions.login(email)
     }
   }
 </script>
