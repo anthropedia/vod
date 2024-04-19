@@ -1,6 +1,5 @@
 <script>
   import page from "/assets/vendors/page.js"
-  import store from "/assets/js/store.js"
 
   const state = {
     currentPage: '',
@@ -8,7 +7,9 @@
     media: {},
   }
   
-  function connected() {
+  async function connected() {
+    const user = await store.actions.autoLogin()
+
     page('/', () => { this.render({ currentPage: 'home' }) })
     page('/login', () => { this.render({ currentPage: 'login' }) })
     page('/video/:id', (ctx) => {

@@ -1,9 +1,10 @@
 <script>
   const methods = {
-    submit(event) {
+    async submit(event) {
       event.preventDefault()
       const email = event.target.email.value
-      const response = api('/video/auth', { data: { email } })
+      const response = await api('/video/auth', { data: { email } })
+      store.actions.login(response.data)
     }
   }
 </script>
