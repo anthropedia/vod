@@ -9,11 +9,13 @@
 </script>
 
 <template>
-  <form @submit="submit">
-    <label for="email">
-      Email Address:
-      <input type="email" name="email" id="email" inputmode="email">
-    </label>
+  <form @submit="submit" class="block">
+    <section>
+      <label for="email">
+        Email Address:
+        <input type="email" name="email" id="email" inputmode="email">
+      </label>
+    </section>
     <button type="submit">Login</button>
   </form>
 </template>
