@@ -2,6 +2,10 @@
 /* @import url('/assets/vendors/decor/decor.css'); */
 @import url('https://use.fontawesome.com/releases/v5.6.1/css/all.css');
 
+:not(:defined) {
+  visibility: hidden;
+}
+
 :root {
   --primary-color: #1e88e5;
   --light-color: #42a5f5;
