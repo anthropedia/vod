@@ -10,8 +10,8 @@
 
   function connected() {
     const { audios, videos } = this.state.user.knowyourself_series.reduce((obj, ref) => {
-      if (ref[0] === 'a') obj['audios'].push(this.state.media.audios.find((m) => m.id == ref[1]))
-      if (ref[0] === 'v') obj['videos'].push(this.state.media.videos.find((m) => m.id == ref[1]))
+      if (ref[0] === 'a') obj['audios'].push(this.state.media.audios.find((m) => m.id == ref.slice(1)))
+      if (ref[0] === 'v') obj['videos'].push(this.state.media.videos.find((m) => m.id == ref.slice(1)))
       return obj
     }, { 'audios': [], 'videos': [] })
     this.render({ audios, videos })
@@ -59,7 +59,7 @@
       <h2>Watch The Know Yourself Videos Series</h2>
       <sl-card class="card-overview" :for="item in state.videos">
         <img slot="image"
-          src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+          :src="item.image"
           alt="A kitten sits patiently between a terracotta pot and decorative grasses." width="300" />
         <strong>${ item.title }</strong><br />
         <p>${ item.description }</p>
@@ -72,17 +72,15 @@
 
     <section>
       <h2>Listen To The Know Yourself Audio Series</h2>
-      <sl-card class="card-overview" :for="item in state.audios">
-        <img slot="image"
-          src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
-          alt="A kitten sits patiently between a terracotta pot and decorative grasses." width="300" />
-        <strong>${ item.title }</strong><br />
-        <p>${ item.description }</p>
-
-        <div slot="footer">
-          <sl-button variant="primary" pill href="/audio/${item.id}">Play</sl-button>
-        </div>
-      </sl-card>
+      <a :for="item in state.audios" href="/audio/${item.id}">
+        <sl-card class="card-overview">
+          <img slot="image"
+            :src="item.image"
+            alt="Know Yourself part ${item.id}, Audio Guide" width="300" />
+          <strong>${ item.title }</strong><br />
+          <p>${ item.description }</p>
+        </sl-card>
+      </a>
     </section>
   </article>
 </template>

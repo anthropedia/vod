@@ -7,6 +7,6 @@
     <h1>${ state.media.title }</h1>
     <img :src="state.media.image" width="300">
     <p>${ state.media.description }</p>
-    <audio controls :src="state.media.url" type="audio/wav"></audio>
+    <audio controls src="https://assets.tci.anthropedia.org/media/a${state.media.id}.en.aac" type="audio/wav"></audio>
   </article>
 </template>
