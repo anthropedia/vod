@@ -1,21 +1,33 @@
 <script>
+  const state = { insertCode: false, message: "" }
+
   const methods = {
     async submit(event) {
       event.preventDefault()
       const email = event.target.email.value
-      store.actions.login(email)
+      const code = event.target.code?.value
+      const user = await store.actions.login(email, code)
+      if(user.email) this.render({ insertCode: true })
+      else this.render({ message: "No account was found matching this address. Please verify your email." })
     }
   }
 </script>
 
 <template>
   <form @submit="submit" class="block">
+    <p :if="state.message">${state.message}</p>
     <section>
       <label for="email">
         Email Address:
         <input type="email" name="email" id="email" inputmode="email">
       </label>
     </section>
-    <button type="submit">Login</button>
+    <section :if="state.insertCode">
+      <label for="code">
+        Code received by mail:
+        <input type="text" name="code" id="code" inputmode="numeric" minlength="6" maxlength="6">
+      </label>
+    </section>
+    <button type="submit">${ state.insertCode ? "Log in" : "Send a code" }</button>
   </form>
 </template>

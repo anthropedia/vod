@@ -29,21 +29,24 @@ const state = {
 }
 
 const actions = {
-  async login(email) {
-    const response = await api('/video/auth', { data: { email } })
+  async login(email, code) {
+    const uri = "/video/auth" + (code ? "" : "/code")
+    const response = await api(uri, { data: { email, code } })
     if(!response.ok) return console.error(response.data)
     const user = response.data
-    localStorage.setItem('user', JSON.stringify(user))
-    this.setState({ user })
-    this.actions.redirect('')
+    if(user.id) {
+      localStorage.setItem('user', JSON.stringify(user))
+      this.actions.autoLogin()
+    }
     return user
   },
 
   async autoLogin() {
     try {
-      const email = JSON.parse(localStorage.getItem("user")).email
-      const user = await this.actions.login(email)
+      const user = JSON.parse(localStorage.getItem("user"))
       if(!user) this.actions.redirect("login")
+      this.setState({ user })
+      this.actions.redirect("/")
     } catch(e) {
       console.error(e)
       this.actions.redirect("login")
