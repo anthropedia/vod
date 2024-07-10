@@ -1,22 +1,2 @@
+# The Docker image that will be used to build your app
 image: node:lts
-
-before_script:
-  - yarn
-  - mkdir dist
-  - cp node_modules/@polight/lego/dist/lego.min.js dist/
-
-# Full project: https://gitlab.com/pages/plain-html
-pages:
-  stage: deploy
-  environment: production
-  script:
-    - yarn lego
-    - mkdir .public
-    - cp -r ./* .public
-    - rm -rf public
-    - mv .public public
-  artifacts:
-    paths:
-      - public
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
